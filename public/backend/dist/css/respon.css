@@ -1,0 +1,55 @@
+thead>tr>th{
+    vertical-align: top !important;
+}
+.expot{
+
+}
+@media screen and ( max-width: 520px ){
+    li.page-item {
+
+        display: none;
+    }
+    .page-item:first-child,
+    .page-item:last-child,
+    .page-item.active {
+
+        display: block;
+    }
+    .winp{
+        width: 80px!important;
+    }
+    .pot{
+        display: block !important;
+    }
+    .pot>a{
+        display: block !important;
+    }
+    .pot>form{
+        display: flex;
+        flex-direction: column;
+        margin-right: 10px;
+    }
+    .pot form>input{
+        margin: 5px 0;
+    }
+    .pot form>button{
+        display: inline-block;
+    }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+    .juss{
+        display: block !important;
+        width: 100%;
+        margin-bottom: 3px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .pot>a{
+        width: 150px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .pot>a{
+        width: 150px;
+    }
+}

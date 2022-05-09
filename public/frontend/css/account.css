@@ -1,0 +1,69 @@
+.header-top-area{
+	height: 45px;
+}
+.account{
+	margin-bottom: 20px; 
+}
+.account_left>.text_left{
+	padding-top: 10px;
+}
+.account_left>.text_left>span{
+	color: #000000b0;
+	font-family: auto;
+	font-size: 20px;
+	font-weight: bold;
+}
+.account_right{
+	margin-top: 20px;
+}
+.account_info{
+	margin: 15px;
+	width: 60%;
+}
+.account_listOrder{
+	background-color: #cccccc3b;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+	.account_info{
+		width: 90%;
+	}
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px){
+	.account{
+		margin: 0 auto;
+		margin-bottom: 20px; 
+		width: 450px;
+	}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 575px){
+	th,td{
+		font-size: 12px;
+	}
+	th:first-child{
+		width: 5%;
+	}
+	td>p{
+		font-size: 11px;
+	}
+	td{
+		padding: 0;
+	}
+	.account_info{
+		width: 90%;
+	}
+	.text_left>span{
+		font-size: 15px;
+	}
+	form>h2{
+		font-size: 20px;
+	}
+
+	.account_listOrder>h2{
+		font-size: 23px;
+	}
+}

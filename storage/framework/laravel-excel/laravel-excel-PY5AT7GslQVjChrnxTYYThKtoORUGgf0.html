@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>    Danh sách đơn hàng
+</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+    <link rel="stylesheet" href="/backend/plugins/fontawesome-free/css/all.min.css">
+
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/backend/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+
+    <link rel="stylesheet" href="/backend/plugins/jqvmap/jqvmap.min.css">
+
+    <link rel="stylesheet" href="/backend/dist/css/adminlte.min.css">
+
+    <link rel="stylesheet" href="/backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+
+    <link rel="stylesheet" href="/backend/plugins/daterangepicker/daterangepicker.css">
+
+    <link rel="stylesheet" href="/backend/plugins/summernote/summernote-bs4.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    </head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    <!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+        </li>
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+        <div class="input-group input-group-sm">
+        </div>
+    </form>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a href="http://project.laravel/admin/user/1" class="nav-link">
+                <i class="fas fa-user"></i>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="http://project.laravel/logout" class="nav-link">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
+        </li>
+    </ul>
+</nav>
+    <!-- /.navbar -->
+
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a class="brand-link">
+        <img src="/backend/dist/img/logo.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">Javenist Shop</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar os-host os-theme-light os-host-overflow os-host-overflow-y os-host-resize-disabled os-host-scrollbar-horizontal-hidden os-host-transition">
+        <!-- Bug -->
+        <div class="os-resize-observer-host observed"><div class="os-resize-observer" style="left: 0px; right: auto;"></div></div>
+        <!-- End Bug -->
+
+        <div class="os-size-auto-observer observed" style="height: calc(100% + 1px); float: left;">
+            <div class="os-resize-observer"></div>
+        </div>
+        <div class="os-content-glue" style="margin: 0px -8px; width: 249px; height: 889px;"></div>
+        <div class="os-padding">
+            <div class="os-viewport os-viewport-native-scrollbars-invisible" style="overflow-y: scroll;">
+                <div class="os-content" style="padding: 0px 8px; height: 100%; width: 100%;">
+                    <!-- Sidebar user panel (optional) -->
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="image">
+                            <img src="/backend/dist/img/avatar.png" class="img-circle elevation-2" alt="User Image">
+                        </div>
+                        <div class="info">
+                            <a class="d-block">Quản trị viên</a>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar Menu -->
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <!-- Add icons to the links using the .nav-icon class
+                                 with font-awesome or any other icon font library -->
+                            <li class="nav-item">
+                                <a href="http://project.laravel/admin" class="nav-link ">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>Tổng quan</p>
+                                </a>
+                            </li>
+
+                                                            <li class="nav-header">NGƯỜI DÙNG</li>
+                                <li class="nav-item ">
+                                    <a href="#" class="nav-link  ">
+                                        <i class="nav-icon fas fa-user"></i>
+                                        <p>Quản lý người dùng <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="http://project.laravel/admin/user/create" class="nav-link ">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Tạo mới</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="http://project.laravel/admin/user" class="nav-link ">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Danh sách</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            
+                            <li class="nav-header">SẢN PHẨM</li>
+                            <li class="nav-item ">
+                                <a href="#" class="nav-link ">
+                                    <i class="nav-icon fas fa-flag"></i>
+                                    <p>Quản lý sản phẩm <i class="fas fa-angle-left right"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="http://project.laravel/admin/product/create" class="nav-link ">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Tạo mới</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="http://project.laravel/admin/product" class="nav-link ">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Danh sách</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item ">
+                                <a href="#" class="nav-link ">
+                                    <i class="nav-icon fas fa-tree"></i>
+                                    <p>Quản lý danh mục <i class="fas fa-angle-left right"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="http://project.laravel/admin/category/create" class="nav-link ">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Tạo mới</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="http://project.laravel/admin/category" class="nav-link ">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Danh sách</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item ">
+                                <a href="#" class="nav-link ">
+                                    <i class="nav-icon fas fa-cloud"></i>
+                                    <p>Quản lý thương hiệu <i class="fas fa-angle-left right"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="http://project.laravel/admin/trademark/create" class="nav-link ">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Tạo mới</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="http://project.laravel/admin/trademark" class="nav-link ">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Danh sách</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-header">ĐƠN HÀNG</li>
+                            <li class="nav-item">
+                                <a href="http://project.laravel/admin/order" class="nav-link active">
+                                    <i class="nav-icon fas fa-drumstick-bite"></i>
+                                    <p>Quản lý đơn hàng</p>
+                                </a>
+                            </li>
+
+                                                            <li class="nav-header">THỐNG KÊ</li>
+                                <li class="nav-item">
+                                    <a href="http://project.laravel/admin/statistic" class="nav-link ">
+                                        <i class="nav-icon fas fa-chart-pie"></i>
+                                        <p>Thống kê</p>
+                                    </a>
+                                </li>
+                                                    </ul>
+                    </nav>
+                    <!-- /.sidebar-menu -->
+                </div>
+            </div>
+        </div>
+        <div class="os-scrollbar os-scrollbar-horizontal os-scrollbar-unusable os-scrollbar-auto-hidden">
+            <div class="os-scrollbar-track">
+                <div class="os-scrollbar-handle" style="width: 100%; transform: translate(0px, 0px);"></div>
+            </div>
+        </div>
+        <div class="os-scrollbar os-scrollbar-vertical os-scrollbar-auto-hidden">
+            <div class="os-scrollbar-track">
+                <div class="os-scrollbar-handle" style="height: 65.5859%; transform: translate(0px, 0px);"></div>
+            </div>
+        </div><div class="os-scrollbar-corner"></div>
+    </div>
+</aside>
+
+    <div class="content-wrapper">
+        <div class="content-header">
+                <div class="container-fluid">
+        <div class="row mb-2">
+        </div><!-- /.row -->
+    </div>
+        </div>
+
+        <section class="content">
+                <div class="container-fluid">
+        <!-- Main row -->
+        <div class="row">
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-primary">
+                        <h3 class="card-title">Đơn hàng</h3>
+                        <div class="card-tools d-flex">
+                            <select class="form-select form-select-sm" aria-label="Default select example"
+                                    name="status" style="margin-right: 10px;" onchange="location = this.value;">
+                                <option>Trạng thái</option>
+                                                                    <option
+                                        value="http://project.laravel/admin/order/export-order?status=0">Chưa xử lý</option>
+                                                                    <option
+                                        value="http://project.laravel/admin/order/export-order?status=1">Đã xác nhận</option>
+                                                                    <option
+                                        value="http://project.laravel/admin/order/export-order?status=2">Đang giao hàng</option>
+                                                                    <option
+                                        value="http://project.laravel/admin/order/export-order?status=3">Đã giao hàng</option>
+                                                            </select>
+                            <form action="http://project.laravel/admin/order" method="GET">
+                                <div class="input-group input-group-sm" style="width: 150px; margin-top: 0;">
+                                    <input type="text" name="q" class="form-control float-right"
+                                           placeholder="Tìm kiếm" value="">
+
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên người nhận</th>
+                                <th>Số điện thoại</th>
+                                <th>Tổng đơn hàng</th>
+                                <th>Thời gian tạo</th>
+                                <th>Trạng thái</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <style>
+                                .widspan {
+                                    padding: .25em 10px;
+                                    font-size: 14px;
+                                }
+                            </style>
+                            <tbody>
+                                                                                                                        <tr>
+                                    <td>1</td>
+                                    <td>Tiến Toàn</td>
+                                    <td>0963215987</td>
+                                    <td>113.990.000 ₫</td>
+                                    <td>04-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-success widspan font-weight-normal">Đã hoàn thành</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>2</td>
+                                    <td>Admin</td>
+                                    <td>0963215987</td>
+                                    <td>111.980.000 ₫</td>
+                                    <td>04-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-success widspan font-weight-normal">Đã hoàn thành</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>3</td>
+                                    <td>Admin</td>
+                                    <td>0963215987</td>
+                                    <td>17.000.000 ₫</td>
+                                    <td>04-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-success widspan font-weight-normal">Đã hoàn thành</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>4</td>
+                                    <td>Admin</td>
+                                    <td>0963215987</td>
+                                    <td>23.000.000 ₫</td>
+                                    <td>05-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-success widspan font-weight-normal">Đã hoàn thành</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>5</td>
+                                    <td>Mai Anh</td>
+                                    <td>0912538543</td>
+                                    <td>37.990.000 ₫</td>
+                                    <td>06-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-success widspan font-weight-normal">Đã hoàn thành</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>6</td>
+                                    <td>Mai Anh</td>
+                                    <td>0912538543</td>
+                                    <td>66.000.000 ₫</td>
+                                    <td>06-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-success widspan font-weight-normal">Đã hoàn thành</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>7</td>
+                                    <td>Mai Anh</td>
+                                    <td>0912538543</td>
+                                    <td>95.960.000 ₫</td>
+                                    <td>05-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-success widspan font-weight-normal">Đã hoàn thành</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>8</td>
+                                    <td>Mai Anh</td>
+                                    <td>0912538543</td>
+                                    <td>61.500.000 ₫</td>
+                                    <td>05-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-success widspan font-weight-normal">Đã hoàn thành</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>9</td>
+                                    <td>Mai Anh</td>
+                                    <td>0912538543</td>
+                                    <td>110.970.000 ₫</td>
+                                    <td>04-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-success widspan font-weight-normal">Đã hoàn thành</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>10</td>
+                                    <td>Mai Anh</td>
+                                    <td>0912538543</td>
+                                    <td>46.980.000 ₫</td>
+                                    <td>03-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-success widspan font-weight-normal">Đã hoàn thành</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>11</td>
+                                    <td>Mai Anh</td>
+                                    <td>0912538543</td>
+                                    <td>22.990.000 ₫</td>
+                                    <td>03-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-success widspan font-weight-normal">Đã hoàn thành</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>12</td>
+                                    <td>Mai Anh</td>
+                                    <td>0912538543</td>
+                                    <td>24.000.000 ₫</td>
+                                    <td>02-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-success widspan font-weight-normal">Đã hoàn thành</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>13</td>
+                                    <td>Mai Anh</td>
+                                    <td>0912538543</td>
+                                    <td>45.980.000 ₫</td>
+                                    <td>02-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-success widspan font-weight-normal">Đã hoàn thành</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>14</td>
+                                    <td>Mai Anh</td>
+                                    <td>0912538543</td>
+                                    <td>348.930.000 ₫</td>
+                                    <td>01-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-success widspan font-weight-normal">Đã hoàn thành</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>15</td>
+                                    <td>Phùng Hải</td>
+                                    <td>0958541258</td>
+                                    <td>513.657.776 ₫</td>
+                                    <td>02-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-success widspan font-weight-normal">Đã hoàn thành</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>16</td>
+                                    <td>Mai Anh</td>
+                                    <td>0912538543</td>
+                                    <td>413.950.000 ₫</td>
+                                    <td>03-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-success widspan font-weight-normal">Đã hoàn thành</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>17</td>
+                                    <td>Mai Anh</td>
+                                    <td>0912538543</td>
+                                    <td>48.000.000 ₫</td>
+                                    <td>28-06-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-success widspan font-weight-normal">Đã hoàn thành</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>18</td>
+                                    <td>S Admin</td>
+                                    <td>0978456321</td>
+                                    <td>26.000.000 ₫</td>
+                                    <td>30-06-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-success widspan font-weight-normal">Đã hoàn thành</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>19</td>
+                                    <td>S Admin</td>
+                                    <td>0978456321</td>
+                                    <td>4.000.000 ₫</td>
+                                    <td>30-06-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-success widspan font-weight-normal">Đã hoàn thành</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>20</td>
+                                    <td>Admin</td>
+                                    <td>0963215987</td>
+                                    <td>26.000.000 ₫</td>
+                                    <td>06-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-info widspan font-weight-normal">Đang giao hàng</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>21</td>
+                                    <td>Quản trị viên</td>
+                                    <td>0963215987</td>
+                                    <td>66.990.000 ₫</td>
+                                    <td>07-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-danger widspan font-weight-normal">Chưa xử lý</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>22</td>
+                                    <td>Quản trị viên</td>
+                                    <td>0963215987</td>
+                                    <td>39.990.000 ₫</td>
+                                    <td>07-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-danger widspan font-weight-normal">Chưa xử lý</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>23</td>
+                                    <td>Quản trị viên</td>
+                                    <td>0963215987</td>
+                                    <td>42.990.000 ₫</td>
+                                    <td>07-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-warning widspan font-weight-normal">Đã xác nhận</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>24</td>
+                                    <td>Phùng Hải</td>
+                                    <td>0958541258</td>
+                                    <td>194.970.000 ₫</td>
+                                    <td>08-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-info widspan font-weight-normal">Đang giao hàng</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>25</td>
+                                    <td>Quản trị viên</td>
+                                    <td>0963215987</td>
+                                    <td>81.960.000 ₫</td>
+                                    <td>08-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-danger widspan font-weight-normal">Chưa xử lý</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>26</td>
+                                    <td>Quản trị viên</td>
+                                    <td>0963215987</td>
+                                    <td>62.000.000 ₫</td>
+                                    <td>08-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-warning widspan font-weight-normal">Đã xác nhận</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>27</td>
+                                    <td>Phùng Hải</td>
+                                    <td>0958541258</td>
+                                    <td>34.000.000 ₫</td>
+                                    <td>08-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-danger widspan font-weight-normal">Chưa xử lý</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>28</td>
+                                    <td>Phùng Hải</td>
+                                    <td>0958541258</td>
+                                    <td>48.990.000 ₫</td>
+                                    <td>08-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-warning widspan font-weight-normal">Đã xác nhận</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>29</td>
+                                    <td>Quản trị viên</td>
+                                    <td>0963215987</td>
+                                    <td>20.000.000 ₫</td>
+                                    <td>08-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-danger widspan font-weight-normal">Chưa xử lý</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>30</td>
+                                    <td>Mai Anh</td>
+                                    <td>0912538543</td>
+                                    <td>17.000.000 ₫</td>
+                                    <td>08-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-danger widspan font-weight-normal">Chưa xử lý</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>31</td>
+                                    <td>Quản trị viên</td>
+                                    <td>0963215987</td>
+                                    <td>49.980.000 ₫</td>
+                                    <td>08-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-danger widspan font-weight-normal">Chưa xử lý</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                                                            <tr>
+                                    <td>32</td>
+                                    <td>Trần Quang Thái</td>
+                                    <td>0912893856</td>
+                                    <td>26.000.000 ₫</td>
+                                    <td>09-07-2021</td>
+                                                                            <td><span
+                                                class="badge badge-pill bg-danger widspan font-weight-normal">Chưa xử lý</span>
+                                        </td>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                                                        </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="d-flex ml-3 mb-3">
+                                <a href="http://project.laravel/admin/order/export-order" class="btn btn-sm btn-info d-inline-block"
+                                   style="margin-right: 10px;">
+                                    <i class="fas fa-file-export"></i> Export Excel
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-6">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+        $('.delete-confirm').click(function (event) {
+            var form = $(this).closest("form");
+            var name = $(this).data("name");
+            event.preventDefault();
+            swal({
+                title: `Bạn có muốn xóa không?`,
+                text: "Nếu bạn xóa nó, bạn sẽ không thể khôi phục lại được",
+                icon: "warning",
+                buttons: ["Không", "Xóa"],
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                });
+        });
+
+        $(document).ready(function () {
+            $('.option_handling').click(function () {
+                $(this).children('input').attr('name', 'status');
+                $(this).parentsUntil('.update_status').submit();
+            });
+        });
+    </script>
+        </section>
+    </div>
+
+    <footer class="main-footer">
+    <strong>Copyright &copy; 2021 <a href="#">Tien Toan</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 1.0
+    </div>
+</footer>
+
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/backend/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="/backend/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="/backend/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="/backend/plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="/backend/plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="/backend/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="/backend/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="/backend/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="/backend/plugins/moment/moment.min.js"></script>
+<script src="/backend/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="/backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="/backend/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="/backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/backend/dist/js/adminlte.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="/backend/dist/js/pages/dashboard.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/backend/dist/js/demo.js"></script>
+
+<script src="//cdn.ckeditor.com/4.16.1/full/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('editor_content');
+</script>
+
+</body>
+</html>
